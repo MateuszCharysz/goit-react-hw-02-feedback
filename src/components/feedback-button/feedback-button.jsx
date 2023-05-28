@@ -12,7 +12,7 @@ const FeedbackButton = ({ name, func }) => {
 
 FeedbackButton.propTypes = {
   name: PropTypes.string.isRequired,
-  func: PropTypes.func.isRequired
+  func: PropTypes.func.isRequired,
 };
 
 export default FeedbackButton;

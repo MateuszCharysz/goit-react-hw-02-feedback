@@ -15,22 +15,20 @@ export class App extends Component {
     bad: 0,
   };
 
-  goodBtnHandle = () => {
-    this.setState({
-      good: this.state.good + 1,
-    });
-  };
-
-  neutralBtnHandle = () => {
-    this.setState({
-      neutral: this.state.neutral + 1,
-    });
-  };
-
-  badBtnHandle = () => {
-    this.setState({
-      bad: this.state.bad + 1,
-    });
+  btnHandle = e => {
+    if (e.target.innerHTML === 'good') {
+      this.setState({
+        good: this.state.good + 1,
+      });
+    } else if (e.target.innerHTML === 'neutral') {
+      this.setState({
+        neutral: this.state.neutral + 1,
+      });
+    } else {
+      this.setState({
+        bad: this.state.bad + 1,
+      });
+    }
   };
 
   countTotalFeedback = () =>
@@ -48,7 +46,7 @@ export class App extends Component {
             <FeedbackButton
               name={feedback}
               key={nanoid()}
-              func={eval(`this.${feedback}BtnHandle`)}
+              func={this.btnHandle}
             />
           ))}
         />
